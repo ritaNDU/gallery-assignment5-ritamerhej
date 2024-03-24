@@ -1,21 +1,6 @@
-import {ImageType, LocationType} from '../data/image.types';
+import {ImageType} from '../data/image.types';
 import {sortByDistance} from '../utils/locationUtils';
-
-export type ImageState = {
-  allImages: ImageType[];
-};
-
-export type Action =
-  | {
-      type: 'storeImages';
-      payload: {images: ImageType[]; currentLocation: LocationType};
-    }
-  | {
-      type: 'addImage';
-      payload: {image: ImageType; currentLocation: LocationType};
-    }
-  | {type: 'removeImage'; payload: {imageId: string}}
-  | {type: 'sort'; payload: {currentLocation: LocationType}};
+import {ImageState, Action} from './imageReducer';
 
 export function imageReducer(state: ImageState, action: Action) {
   const {type} = action;
@@ -47,10 +32,7 @@ export function imageReducer(state: ImageState, action: Action) {
       return {...state, allImages: updatedImages};
     }
     case 'sort': {
-      const updatedImages = sortByDistance(
-        state.allImages,
-        action.payload.currentLocation,
-      );
+      const updatedImages = sortByDistance(action.payload.currentLocation);
       return {...state, allImages: updatedImages};
     }
     default:
