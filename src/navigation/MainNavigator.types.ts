@@ -4,6 +4,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 export type MainNavigatorStackPropsList = {
   HomeScreen: undefined;
   Gallery: undefined;
+  FavoritesScreen: undefined;
   ImageDetails: {imageId: string};
 };
 

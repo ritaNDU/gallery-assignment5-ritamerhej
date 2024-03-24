@@ -1,36 +1,16 @@
 import {useContext} from 'react';
 import {AppContextType, ImagesContext} from '../store/ImagesContextProvider';
-import {Alert, Linking, PermissionsAndroid} from 'react-native';
+import {Alert, Linking} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import {LocationType} from '../data/image.types';
 import GeolocationResponse, {GeolocationError} from '../data/geolocation.types';
+import useManagePermissions from './useManagePermissions';
 
 const useManageUserLocation = () => {
   const {currentLocation, setCurrentLocation} = useContext(
     ImagesContext,
   ) as AppContextType;
-
-  async function requestLocationPermission() {
-    try {
-      const granted = await PermissionsAndroid.request(
-        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-        {
-          title: 'Geolocation Permission',
-          message: 'Can we access your location?',
-          buttonNeutral: 'Ask Me Later',
-          buttonNegative: 'Cancel',
-          buttonPositive: 'OK',
-        },
-      );
-      if (granted === 'granted') {
-        return true;
-      } else {
-        return false;
-      }
-    } catch (err) {
-      return false;
-    }
-  }
+  const {requestLocationPermission} = useManagePermissions();
 
   async function updateUserLocation() {
     const hasLocationPermission = await requestLocationPermission();

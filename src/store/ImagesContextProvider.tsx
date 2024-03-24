@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import {LocationType} from '../data/image.types';
 import {Action, ImageState} from './imageReducer';
-import {imageReducer} from './imageReducer.1';
+import {imageReducer} from './imageReducer';
 import images from '../data/mockData';
 
 export type AppContextType = {

@@ -3,6 +3,8 @@ import React from 'react';
 import OpenGalleryButton from '../../components/atoms/Buttons/OpenGalleryButton';
 import {useNavigation} from '@react-navigation/native';
 import {MainNavigatorNavigationProps} from '../../navigation/MainNavigator.types';
+import PickImageButton from '../../components/atoms/Buttons/PickImageButton';
+import styles from './HomeScreen.styles';
 
 const HomeScreen = () => {
   const navigation = useNavigation<MainNavigatorNavigationProps>();
@@ -12,8 +14,9 @@ const HomeScreen = () => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <OpenGalleryButton onPress={handleGoToGallery} />
+      <PickImageButton onPress={() => console.log('Pick an image now')} />
     </View>
   );
 };

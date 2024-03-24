@@ -4,10 +4,8 @@ import {MainNavigatorStackPropsList} from './MainNavigator.types';
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import Gallery from '../screens/Gallery/GalleryScreen';
 import ImageDetails from '../screens/ImageDetails/ImageDetailsScreen';
-import {
-  gestureHandlerRootHOC,
-  GestureHandlerRootView,
-} from 'react-native-gesture-handler';
+import {gestureHandlerRootHOC} from 'react-native-gesture-handler';
+import FavoritesScreen from '../screens/FavoritesScreen/FavoritesScreen';
 
 const Stack = createNativeStackNavigator<MainNavigatorStackPropsList>();
 
@@ -22,6 +20,10 @@ const MainNavigator = () => {
       <Stack.Screen
         name="ImageDetails"
         component={gestureHandlerRootHOC(ImageDetails)}
+      />
+      <Stack.Screen
+        name="FavoritesScreen"
+        component={gestureHandlerRootHOC(FavoritesScreen)}
       />
     </Stack.Navigator>
   );
