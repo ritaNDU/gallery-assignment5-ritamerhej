@@ -3,10 +3,10 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export type MainNavigatorStackPropsList = {
   HomeScreen: undefined;
-  Gallery: undefined;
+  GalleryScreen: undefined;
   FavoritesScreen: undefined;
   CameraScreen: undefined;
-  ImageDetails: {imageId: string};
+  ImageDetailsScreen: {imageId: string};
 };
 
 export type MainNavigatorNavigationProps =

@@ -3,14 +3,13 @@ import React from 'react';
 
 type Props = {
   onPress: () => void;
-  name: string;
 };
 
-const FavoritesButton = ({onPress, name}: Props) => {
+const FavoritesButton = ({onPress}: Props) => {
   return (
     <View>
       <Pressable onPress={onPress}>
-        <Text>{name} </Text>
+        <Text>Favorites</Text>
       </Pressable>
     </View>
   );

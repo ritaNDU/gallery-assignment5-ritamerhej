@@ -21,6 +21,7 @@
     "react-native": "0.73.6",
     "react-native-exif": "^0.5.0",
     "react-native-gesture-handler": "^2.15.0",
+    "react-native-image-crop-picker": "^0.40.3",
     "react-native-image-picker": "^7.1.2",
     "react-native-maps": "^1.11.3",
     "react-native-permissions": "^4.1.4",

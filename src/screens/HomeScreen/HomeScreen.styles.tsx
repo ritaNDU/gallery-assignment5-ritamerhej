@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     minHeight: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 20,
+    gap: 40,
   },
 });
 

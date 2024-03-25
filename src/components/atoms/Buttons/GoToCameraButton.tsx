@@ -5,14 +5,14 @@ type Props = {
   onPress: () => void;
 };
 
-const TakeImageButton = ({onPress}: Props) => {
+const GoToCameraButton = ({onPress}: Props) => {
   return (
     <View>
       <Pressable onPress={onPress}>
-        <Text>TakeImageButton </Text>
+        <Text>Take a Picture </Text>
       </Pressable>
     </View>
   );
 };
 
-export default TakeImageButton;
+export default GoToCameraButton;

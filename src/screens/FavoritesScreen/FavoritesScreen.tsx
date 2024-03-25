@@ -1,9 +1,9 @@
-import {View, Text, ListRenderItemInfo} from 'react-native';
+import {ListRenderItemInfo} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import useManageAsyncStorage from '../../hooks/useManageAsyncStorage';
 import {ImageType} from '../../data/image.types';
-import {FlatList} from 'react-native-gesture-handler';
 import ImageCard from '../../components/molecules/ImageCard';
+import FavoriteImagesList from '../../components/organisms/FavoriteImagesList';
 
 const FavoritesScreen = () => {
   const {getAllItems, removeItem} = useManageAsyncStorage();
@@ -12,15 +12,12 @@ const FavoritesScreen = () => {
   const handleRemoveItem = (imageId: string) => async () => {
     await removeItem(imageId);
   };
-  function renderImages(itemData: ListRenderItemInfo<ImageType>) {
-    if (itemData.item == null) {
+  function renderImages({item}: ListRenderItemInfo<ImageType>) {
+    if (item == null) {
       setFavoriteItems([]);
     }
     return (
-      <ImageCard
-        imageUri={itemData.item?.uri}
-        onPress={handleRemoveItem(itemData.item?.id)}
-      />
+      <ImageCard imageUri={item?.uri} onPress={handleRemoveItem(item?.id)} />
     );
   }
 
@@ -33,17 +30,10 @@ const FavoritesScreen = () => {
   });
 
   return (
-    <View>
-      {favoriteItems.length > 0 ? (
-        <>
-          <FlatList data={favoriteItems} renderItem={renderImages} />
-        </>
-      ) : (
-        <Text>
-          No images yet. Long press on images to add them to your favorites.
-        </Text>
-      )}
-    </View>
+    <FavoriteImagesList
+      favoriteItems={favoriteItems}
+      renderImages={renderImages}
+    />
   );
 };
 

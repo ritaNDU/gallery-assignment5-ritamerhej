@@ -9,7 +9,7 @@ const PickImageButton = ({onPress}: Props) => {
   return (
     <View>
       <Pressable onPress={onPress}>
-        <Text>PickImageButton</Text>
+        <Text>Pick an Image</Text>
       </Pressable>
     </View>
   );

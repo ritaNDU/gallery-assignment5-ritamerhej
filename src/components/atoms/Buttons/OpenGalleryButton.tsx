@@ -9,7 +9,7 @@ const OpenGalleryButton = ({onPress}: Props) => {
   return (
     <View>
       <Pressable onPress={onPress}>
-        <Text>OpenGalleryButton </Text>
+        <Text>Gallery </Text>
       </Pressable>
     </View>
   );

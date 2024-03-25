@@ -1,29 +1,18 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Alert,
-  Linking,
-  SafeAreaView,
-  Image,
-  Pressable,
-} from 'react-native';
-import React, {useRef, useState} from 'react';
+import {View, Text, StyleSheet, Alert, Pressable} from 'react-native';
+import React, {useRef} from 'react';
 import {Camera, useCameraDevice} from 'react-native-vision-camera';
 import {CameraRoll} from '@react-native-camera-roll/camera-roll';
 import useManagePermissions from '../../hooks/useManagePermissions';
 import useManageUserLocation from '../../hooks/useManageUserLocation';
-import useManageImages from '../../hooks/useManageImages';
 import {ImageType} from '../../data/image.types';
+import {storeImagesInApi} from '../../service/api';
+import TakePhotoButton from '../../components/atoms/Buttons/TakePhotoButton';
 
 const CameraScreen = () => {
   const {hasPermission, handleCameraPermission} = useManagePermissions();
   const device = useCameraDevice('back');
   const camera = useRef<Camera>(null);
   const {currentLocation} = useManageUserLocation();
-  const {addImages} = useManageImages();
-
-  const [capturedImage, setCapturedImage] = useState<null | string>(null);
 
   const takePhoto = async () => {
     const photo = await camera.current?.takePhoto();
@@ -35,9 +24,8 @@ const CameraScreen = () => {
         longitude: currentLocation.longitude,
       },
     };
-    addImages([imageToAdd]);
-    setCapturedImage(`file://${photo!.path}`);
     saveImage(`file://${photo!.path}`);
+    storeImagesInApi(imageToAdd);
   };
 
   const saveImage = async (imageUri: string) => {
@@ -74,10 +62,8 @@ const CameraScreen = () => {
         </Pressable>
       )}
 
-      <View style={{position: 'absolute', bottom: 100}}>
-        <Pressable onPress={takePhoto}>
-          <Text style={{fontSize: 20, color: '#fff'}}>Take photo</Text>
-        </Pressable>
+      <View style={{position: 'absolute', bottom: 50, alignSelf: 'center'}}>
+        <TakePhotoButton onPress={takePhoto} />
       </View>
     </View>
   );
