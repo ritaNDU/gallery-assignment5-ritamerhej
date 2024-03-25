@@ -20,7 +20,7 @@ const useManageUserLocation = () => {
         (position: GeolocationResponse) => {
           const location: LocationType = {
             latitude: position.coords.latitude,
-            longitude: position.coords.latitude,
+            longitude: position.coords.longitude,
           };
           setCurrentLocation(location);
         },

@@ -4,7 +4,7 @@ import ImagesList from '../../components/organisms/ImagesList';
 
 const GalleryScreen = () => {
   return (
-    <View>
+    <View style={{padding: 10}}>
       <ImagesList />
     </View>
   );

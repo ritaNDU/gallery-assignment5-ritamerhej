@@ -8,7 +8,6 @@ import React, {
 import {LocationType} from '../data/image.types';
 import {Action, ImageState} from './imageReducer';
 import {imageReducer} from './imageReducer';
-import images from '../data/mockData';
 
 export type AppContextType = {
   imagesState: ImageState;
@@ -26,7 +25,7 @@ const ImagesContextProvider = ({children}: {children: React.JSX.Element}) => {
     latitude: 33.85787399361332,
     longitude: 35.56873144371473,
   };
-  const [imagesState, dispatch] = useReducer(imageReducer, {allImages: images});
+  const [imagesState, dispatch] = useReducer(imageReducer, {allImages: []});
   const [currentLocation, setCurrentLocation] =
     useState<LocationType>(initialLocation);
   return (

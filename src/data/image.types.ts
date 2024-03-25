@@ -1,8 +1,8 @@
-import {ImageProps} from 'react-native';
+import {ImageSourcePropType} from 'react-native';
 
 export type ImageType = {
   id: string;
-  uri: ImageProps;
+  uri: ImageSourcePropType;
   location: LocationType;
   timestamp?: string;
 };

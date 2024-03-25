@@ -22,7 +22,9 @@ const ImageDetails = ({imageId}: Props) => {
         <Text>Image data unavailable</Text>
       ) : (
         <View>
-          <Image source={image.uri} />
+          <View style={{alignItems: 'center'}}>
+            <Image source={image.uri} style={{width: '80%', height: 300}} />
+          </View>
           <Text>Location</Text>
           <LocationMap location={image.location} />
         </View>

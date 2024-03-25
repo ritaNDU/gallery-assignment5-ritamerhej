@@ -3,16 +3,17 @@ import React from 'react';
 
 type Props = {
   onPress: () => void;
+  name: string;
 };
 
-const HelpButton = ({onPress}: Props) => {
+const FavoritesButton = ({onPress, name}: Props) => {
   return (
     <View>
       <Pressable onPress={onPress}>
-        <Text>HelpButton</Text>
+        <Text>{name} </Text>
       </Pressable>
     </View>
   );
 };
 
-export default HelpButton;
+export default FavoritesButton;

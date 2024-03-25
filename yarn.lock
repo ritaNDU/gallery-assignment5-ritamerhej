@@ -5721,7 +5721,7 @@ react-is@^17.0.1:
 
 react-native-exif@^0.5.0:
   version "0.5.0"
-  resolved "https://registry.npmjs.org/react-native-exif/-/react-native-exif-0.5.0.tgz"
+  resolved "https://registry.yarnpkg.com/react-native-exif/-/react-native-exif-0.5.0.tgz#9cf6c643cf903bda0637e2ea8a735acdcd2a1616"
   integrity sha512-nt8JY1QhM3EE86Wk+IusJ8J37c3ecdRETlF5g/SFKmAt3E+vnQmWwWyuLNtJux/f1zBJXhQ9Dvb43BYfu8w2yQ==
 
 react-native-gesture-handler@^2.15.0:

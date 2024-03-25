@@ -5,6 +5,7 @@ export type MainNavigatorStackPropsList = {
   HomeScreen: undefined;
   Gallery: undefined;
   FavoritesScreen: undefined;
+  CameraScreen: undefined;
   ImageDetails: {imageId: string};
 };
 

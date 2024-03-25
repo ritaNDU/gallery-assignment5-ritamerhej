@@ -1,7 +1,30 @@
-import {PermissionsAndroid} from 'react-native';
+import {Alert, Linking, PermissionsAndroid} from 'react-native';
 import Permissions from 'react-native-permissions';
+import {useCameraPermission} from 'react-native-vision-camera';
 
 const useManagePermissions = () => {
+  const {requestPermission, hasPermission} = useCameraPermission();
+  const handleCameraPermission = async () => {
+    const isAccessGranted = await requestPermission();
+
+    if (!isAccessGranted) {
+      Alert.alert('Permission required', 'Open settings to grant permission', [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Open settings',
+          style: 'default',
+          onPress: async () => {
+            await Linking.openSettings();
+          },
+        },
+      ]);
+      return;
+    }
+  };
+
   async function requestLocationPermission() {
     try {
       const granted = await PermissionsAndroid.request(
@@ -67,6 +90,8 @@ const useManagePermissions = () => {
     requestLocationPermission,
     askReadStoragePermissions,
     askWriteStoragePermissions,
+    hasPermission,
+    handleCameraPermission,
   };
 };
 
