@@ -4,6 +4,7 @@ import LocationMap from '../molecules/LocationMap';
 import {AppContextType, ImagesContext} from '../../store/ImagesContextProvider';
 import {ImageType} from '../../data/image.types';
 import {getImageById} from '../../utils/imagesUtils';
+import styles from './organisms.style';
 
 type Props = {
   imageId: string;
@@ -21,12 +22,18 @@ const ImageDetails = ({imageId}: Props) => {
       {!image ? (
         <Text>Image data unavailable</Text>
       ) : (
-        <View>
-          <View style={{alignItems: 'center'}}>
-            <Image source={image.uri} style={{width: '80%', height: 300}} />
+        <View style={styles.detailsContainer}>
+          <View style={styles.imageContainer}>
+            <Image
+              source={image.uri}
+              style={styles.image}
+              resizeMode="contain"
+            />
           </View>
-          <Text>Location</Text>
-          <LocationMap location={image.location} />
+          <View>
+            <Text style={styles.title}>Location</Text>
+            <LocationMap location={image.location} />
+          </View>
         </View>
       )}
     </ScrollView>

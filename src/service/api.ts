@@ -49,8 +49,8 @@ export async function getImagesFromApi(page: string) {
   return images;
 }
 
-export function deletePictureFromApi(imageId: string) {
-  axios
+export async function deletePictureFromApi(imageId: string) {
+  await axios
     .delete(BASE_URL + `images/${imageId}`)
     .catch(() => Alert.alert("An error occured. Image couldn't be deleted."));
 }

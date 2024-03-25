@@ -1,5 +1,6 @@
 import {Image, ImageSourcePropType, Pressable} from 'react-native';
 import React from 'react';
+import styles from './molecules.styles';
 
 type Props = {
   imageUri: ImageSourcePropType;
@@ -8,17 +9,8 @@ type Props = {
 
 const ImageCard = ({imageUri, onPress}: Props) => {
   return (
-    <Pressable
-      onPress={onPress}
-      style={{
-        marginBottom: 2,
-        alignItems: 'center',
-      }}>
-      <Image
-        source={imageUri}
-        style={{width: '80%', height: 300}}
-        resizeMode="cover"
-      />
+    <Pressable onPress={onPress} style={styles.card}>
+      <Image source={imageUri} style={styles.image} resizeMode="contain" />
     </Pressable>
   );
 };

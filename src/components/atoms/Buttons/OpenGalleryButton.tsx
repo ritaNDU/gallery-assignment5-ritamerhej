@@ -1,5 +1,7 @@
-import {Pressable, Text, View} from 'react-native';
+import {Text} from 'react-native';
 import React from 'react';
+import styles from './Buttons.styles';
+import ButtonTemplate from './ButtonsTemplate';
 
 type Props = {
   onPress: () => void;
@@ -7,11 +9,9 @@ type Props = {
 
 const OpenGalleryButton = ({onPress}: Props) => {
   return (
-    <View>
-      <Pressable onPress={onPress}>
-        <Text>Gallery </Text>
-      </Pressable>
-    </View>
+    <ButtonTemplate style={styles.container} onPress={onPress}>
+      <Text style={styles.text}>Gallery </Text>
+    </ButtonTemplate>
   );
 };
 

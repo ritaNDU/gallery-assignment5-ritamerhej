@@ -1,9 +1,11 @@
-import {ListRenderItemInfo} from 'react-native';
+import {ListRenderItemInfo, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import useManageAsyncStorage from '../../hooks/useManageAsyncStorage';
 import {ImageType} from '../../data/image.types';
 import ImageCard from '../../components/molecules/ImageCard';
 import FavoriteImagesList from '../../components/organisms/FavoriteImagesList';
+import commonStyles from '../Common.styles';
+import styles from './FavoritesScreen.styles';
 
 const FavoritesScreen = () => {
   const {getAllItems, removeItem} = useManageAsyncStorage();
@@ -30,10 +32,12 @@ const FavoritesScreen = () => {
   });
 
   return (
-    <FavoriteImagesList
-      favoriteItems={favoriteItems}
-      renderImages={renderImages}
-    />
+    <View style={[commonStyles.container, styles.container]}>
+      <FavoriteImagesList
+        favoriteItems={favoriteItems}
+        renderImages={renderImages}
+      />
+    </View>
   );
 };
 

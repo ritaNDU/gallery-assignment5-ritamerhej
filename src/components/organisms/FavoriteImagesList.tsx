@@ -1,6 +1,7 @@
 import {View, Text, FlatList, ListRenderItemInfo} from 'react-native';
 import React from 'react';
 import {ImageType} from '../../data/image.types';
+import styles from './organisms.style';
 
 type Props = {
   favoriteItems: ImageType[];
@@ -14,9 +15,7 @@ const FavoriteImagesList = ({favoriteItems, renderImages}: Props) => {
           <FlatList data={favoriteItems} renderItem={renderImages} />
         </>
       ) : (
-        <Text>
-          No images yet. Long press on images to add them to your favorites.
-        </Text>
+        <Text style={styles.noImagesText}>No images yet...</Text>
       )}
     </View>
   );
