@@ -21,7 +21,7 @@ const MainNavigator = () => {
         name="HomeScreen"
         component={gestureHandlerRootHOC(HomeScreen)}
         options={{
-          title: 'NOSTALGIA',
+          headerShown: false,
         }}
       />
       <Stack.Screen
