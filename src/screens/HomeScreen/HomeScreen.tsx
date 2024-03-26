@@ -42,7 +42,6 @@ const HomeScreen = () => {
                   latitude: result.exif?.Latitude,
                 }
               : currentLocation;
-          console.log(result.path);
           const imageToAdd: ImageType = {
             id: `${Math.floor(Math.random() * 10000)}${
               result.creationDate as string

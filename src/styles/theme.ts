@@ -9,6 +9,7 @@ const theme = {
     buttonTextColor: '#F0F3F4',
     favoritesPrimary: '#fe4164',
     favoritesSecondary: '#fddde6',
+    favoritesImageBackground: '#ff9999',
   },
   fontSize: {
     small: (NORMAL_FONT_SIZE * 75) / 100,

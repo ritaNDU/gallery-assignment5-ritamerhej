@@ -15,6 +15,7 @@ const ImagesList = () => {
   const {imagesState} = useContext(ImagesContext) as AppContextType;
   const {endReached, isLoading, refresh, handleLoadMore, handleRefresh} =
     useManageImagesFetching();
+
   const pageToFetch =
     imagesState.allImages.length >= 3
       ? imagesState.allImages.length / LIMIT + 1
@@ -28,12 +29,15 @@ const ImagesList = () => {
     if (item == null) {
       return <></>;
     }
+
     return (
-      <ImageCard
-        imageUri={item.uri}
-        onPress={handleImagePress(item.id)}
-        imageId={item.id}
-      />
+      <View>
+        <ImageCard
+          imageUri={item.uri}
+          onPress={handleImagePress(item.id)}
+          imageId={item.id}
+        />
+      </View>
     );
   }
 
@@ -52,6 +56,7 @@ const ImagesList = () => {
           }
           refreshing={refresh}
           onRefresh={handleRefresh}
+          nestedScrollEnabled={false}
         />
       ) : (
         <Text style={styles.noImagesText}>No images yet...</Text>

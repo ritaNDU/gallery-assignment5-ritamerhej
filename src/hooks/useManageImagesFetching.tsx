@@ -17,7 +17,7 @@ const useManageImagesFetching = () => {
     setIsLoading(true);
     const images = await getImagesFromApi(page);
     setIsLoading(false);
-    if (images.length === 0) {
+    if (images.length === 0 || imagesState.allImages.length % 3 !== 0) {
       setEndReached(true);
       return;
     }

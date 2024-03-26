@@ -2,10 +2,10 @@ import {ListRenderItemInfo, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import useManageAsyncStorage from '../../hooks/useManageAsyncStorage';
 import {ImageType} from '../../data/image.types';
-import ImageCard from '../../components/molecules/ImageCard';
 import FavoriteImagesList from '../../components/organisms/FavoriteImagesList';
 import commonStyles from '../Common.styles';
 import styles from './FavoritesScreen.styles';
+import FavoriteImageCard from '../../components/molecules/FavoriteImagesCard';
 
 const FavoritesScreen = () => {
   const {getAllItems, removeItem} = useManageAsyncStorage();
@@ -19,7 +19,10 @@ const FavoritesScreen = () => {
       setFavoriteItems([]);
     }
     return (
-      <ImageCard imageUri={item?.uri} onPress={handleRemoveItem(item?.id)} />
+      <FavoriteImageCard
+        imageUri={item?.uri}
+        onPress={handleRemoveItem(item?.id)}
+      />
     );
   }
 
