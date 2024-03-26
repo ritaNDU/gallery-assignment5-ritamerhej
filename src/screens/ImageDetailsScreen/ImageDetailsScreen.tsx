@@ -1,4 +1,4 @@
-import {Alert, ScrollView, View} from 'react-native';
+import {Alert, ScrollView} from 'react-native';
 import React from 'react';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {MainNavigatorStackPropsList} from '../../navigation/MainNavigator.types';
@@ -26,7 +26,7 @@ const ImageDetailsScreen = () => {
   return (
     <ScrollView style={[commonStyles.container, styles.container]}>
       <ImageDetails imageId={imageId} />
-      <FavoritesButton onPress={handlePress} />
+      <FavoritesButton onPress={handlePress} name="Add to Favorites" />
     </ScrollView>
   );
 };

@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   favorites: {
     ...commonButtonStyles,
     backgroundColor: theme.colors.favoritesPrimary,
+    marginBottom: 20,
   },
   favoritesText: {
     ...commonTextStyles,

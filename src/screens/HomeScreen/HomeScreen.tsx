@@ -74,7 +74,7 @@ const HomeScreen = () => {
       <OpenGalleryButton onPress={handleGoToGallery} />
       <PickImageButton onPress={handlePickImage} />
       <GoToCameraButton onPress={handleGoToCamera} />
-      <FavoritesButton onPress={handleGoToFavorites} />
+      <FavoritesButton name="Favorites" onPress={handleGoToFavorites} />
     </View>
   );
 };
