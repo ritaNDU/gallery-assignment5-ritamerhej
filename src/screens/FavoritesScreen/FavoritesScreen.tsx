@@ -15,14 +15,13 @@ const FavoritesScreen = () => {
     await removeItem(imageId);
   };
   function renderImages({item}: ListRenderItemInfo<ImageType>) {
-    if (item == null) {
-      setFavoriteItems([]);
-    }
     return (
-      <FavoriteImageCard
-        imageUri={item?.uri}
-        onPress={handleRemoveItem(item?.id)}
-      />
+      item && (
+        <FavoriteImageCard
+          imageUri={item?.uri}
+          onPress={handleRemoveItem(item?.id)}
+        />
+      )
     );
   }
 
