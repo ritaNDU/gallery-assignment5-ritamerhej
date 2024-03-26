@@ -30,10 +30,7 @@ const ButtonTemplate = ({children, onPress, style}: Props) => {
 
   return (
     <Animated.View style={[style, animatedChanged]}>
-      <Pressable
-        data-testid="templateButton"
-        onPress={handlePress}
-        hitSlop={buttonsHitSlop}>
+      <Pressable onPress={handlePress} hitSlop={buttonsHitSlop}>
         {children}
       </Pressable>
     </Animated.View>

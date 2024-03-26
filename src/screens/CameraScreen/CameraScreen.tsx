@@ -7,6 +7,7 @@ import useManageUserLocation from '../../hooks/useManageUserLocation';
 import {ImageType} from '../../data/image.types';
 import {storeImagesInApi} from '../../service/api';
 import TakePhotoButton from '../../components/atoms/Buttons/TakePhotoButton';
+import styles from './CameraScreen.styles';
 
 const CameraScreen = () => {
   const {hasPermission, handleCameraPermission} = useManagePermissions();
@@ -36,8 +37,8 @@ const CameraScreen = () => {
 
   if (device === null) {
     return (
-      <View>
-        <Text style={{fontSize: 20, color: 'red'}}>
+      <View style={styles.deviceNotSupportedContainer}>
+        <Text style={styles.deviceNotSupportedText}>
           Camera feature not supported
         </Text>
       </View>
@@ -45,24 +46,22 @@ const CameraScreen = () => {
   }
 
   return (
-    <View style={{height: '100%'}}>
+    <View style={styles.cameraContainer}>
       {hasPermission ? (
         <Camera
           photo
           ref={camera}
-          style={[StyleSheet.absoluteFill, {zIndex: -1}]}
+          style={[StyleSheet.absoluteFill, styles.camera]}
           device={device!}
           isActive={true}
         />
       ) : (
         <Pressable onPress={handleCameraPermission}>
-          <Text style={{fontSize: 20, color: '#000'}}>
-            Request camera access
-          </Text>
+          <Text style={styles.askForPermission}>Request camera access</Text>
         </Pressable>
       )}
 
-      <View style={{position: 'absolute', bottom: 50, alignSelf: 'center'}}>
+      <View style={styles.buttonContainer}>
         <TakePhotoButton onPress={takePhoto} />
       </View>
     </View>

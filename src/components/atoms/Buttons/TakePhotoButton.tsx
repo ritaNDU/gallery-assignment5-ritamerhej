@@ -1,4 +1,4 @@
-import {Pressable, View} from 'react-native';
+import {Pressable} from 'react-native';
 import React from 'react';
 import styles from './Buttons.styles';
 
@@ -7,11 +7,7 @@ type Props = {
 };
 
 const TakePhotoButton = ({onPress}: Props) => {
-  return (
-    <View>
-      <Pressable style={styles.captureButton} onPress={onPress} />
-    </View>
-  );
+  return <Pressable style={styles.captureButton} onPress={onPress} />;
 };
 
 export default TakePhotoButton;

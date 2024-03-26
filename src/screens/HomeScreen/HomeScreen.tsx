@@ -1,9 +1,7 @@
 import {Alert, Linking, View} from 'react-native';
 import React from 'react';
-import OpenGalleryButton from '../../components/atoms/Buttons/OpenGalleryButton';
 import {useNavigation} from '@react-navigation/native';
 import {MainNavigatorNavigationProps} from '../../navigation/MainNavigator.types';
-import PickImageButton from '../../components/atoms/Buttons/PickImageButton';
 
 import styles from './HomeScreen.styles';
 import {ImageType, LocationType} from '../../data/image.types';
@@ -12,7 +10,7 @@ import useManageUserLocation from '../../hooks/useManageUserLocation';
 import FavoritesButton from '../../components/atoms/Buttons/FavoritesButton';
 import {storeImagesInApi} from '../../service/api';
 import ImagePicker from 'react-native-image-crop-picker';
-import GoToCameraButton from '../../components/atoms/Buttons/GoToCameraButton';
+import NavigationButton from '../../components/atoms/Buttons/NavigationButton';
 
 const HomeScreen = () => {
   const navigation = useNavigation<MainNavigatorNavigationProps>();
@@ -71,9 +69,9 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <OpenGalleryButton onPress={handleGoToGallery} />
-      <PickImageButton onPress={handlePickImage} />
-      <GoToCameraButton onPress={handleGoToCamera} />
+      <NavigationButton name="Gallery" onPress={handleGoToGallery} />
+      <NavigationButton name="Pick an Image" onPress={handlePickImage} />
+      <NavigationButton name="Take a Picture" onPress={handleGoToCamera} />
       <FavoritesButton name="Favorites" onPress={handleGoToFavorites} />
     </View>
   );
