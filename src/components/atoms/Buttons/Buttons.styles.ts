@@ -52,6 +52,8 @@ const styles = StyleSheet.create({
     color: theme.colors.favoritesSecondary,
   },
   loadMoreButton: {
+    padding: 10,
+    width: '90%',
     height: 50,
     marginVertical: 10,
     backgroundColor: theme.colors.primary,

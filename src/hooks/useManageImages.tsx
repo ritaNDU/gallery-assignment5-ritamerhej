@@ -11,7 +11,6 @@ const useManageImages = () => {
   function addImages(imagesToAdd: ImageType[]) {
     dispatch({type: 'addImages', payload: {images: imagesToAdd}});
   }
-  //TODO: Rermove this when data fetching is implemented.
   function removeImage(imageId: string) {
     dispatch({type: 'removeImage', payload: {imageId: imageId}});
   }
