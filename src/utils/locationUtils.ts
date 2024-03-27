@@ -6,6 +6,7 @@ export function sortByDistance(
   currentLocation: LocationType,
 ) {
   const updatedImages = images.sort((image1, image2) => {
+    console.log('sorting');
     const distanceImage1 = getDistance(image1.location, currentLocation);
     const distanceImage2 = getDistance(image2.location, currentLocation);
     if (distanceImage1 === distanceImage2) {

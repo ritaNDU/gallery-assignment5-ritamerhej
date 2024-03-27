@@ -12,7 +12,7 @@ const useManageUserLocation = () => {
   ) as AppContextType;
   const {requestLocationPermission} = useManagePermissions();
 
-  async function updateUserLocation(callback?: () => void) {
+  async function updateUserLocation() {
     const hasLocationPermission = await requestLocationPermission();
 
     if (hasLocationPermission) {
@@ -22,14 +22,12 @@ const useManageUserLocation = () => {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
           };
-          if (callback) {
-            callback();
-          }
           setCurrentLocation(location);
         },
         (error: GeolocationError) => Alert.alert(error.message),
         {
           enableHighAccuracy: true,
+          timeout: 2000,
         },
       );
     } else {

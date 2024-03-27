@@ -33,14 +33,14 @@ const useManageImagesFetching = () => {
   async function handleInitialFetch() {
     setIsLoading(true);
     const images = await getImagesFromApi('1');
+    // This is required to have the images always sorted on mount
+    const sortedImages = sortByDistance(images, currentLocation);
     setIsLoading(false);
-    storeImages(images);
+    storeImages(sortedImages);
   }
   useEffect(() => {
-    updateUserLocation(() =>
-      sortByDistance(imagesState.allImages, currentLocation),
-    );
     handleInitialFetch();
+    updateUserLocation();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
