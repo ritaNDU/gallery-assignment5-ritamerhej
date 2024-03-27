@@ -27,7 +27,7 @@ const useManageUserLocation = () => {
         (error: GeolocationError) => Alert.alert(error.message),
         {
           enableHighAccuracy: true,
-          timeout: 2000,
+          timeout: 20000,
         },
       );
     } else {
