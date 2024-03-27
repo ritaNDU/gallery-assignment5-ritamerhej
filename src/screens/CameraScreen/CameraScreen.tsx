@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Alert, Pressable} from 'react-native';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import React, {useRef} from 'react';
 import {Camera, useCameraDevice} from 'react-native-vision-camera';
 import {CameraRoll} from '@react-native-camera-roll/camera-roll';
@@ -8,6 +8,7 @@ import {ImageType} from '../../data/image.types';
 import {storeImagesInApi} from '../../service/api';
 import TakePhotoButton from '../../components/atoms/Buttons/TakePhotoButton';
 import styles from './CameraScreen.styles';
+import NavigationButton from '../../components/atoms/Buttons/NavigationButton';
 
 const CameraScreen = () => {
   const {hasPermission, handleCameraPermission} = useManagePermissions();
@@ -44,26 +45,29 @@ const CameraScreen = () => {
       </View>
     );
   }
-
   return (
     <View style={styles.cameraContainer}>
       {hasPermission ? (
-        <Camera
-          photo
-          ref={camera}
-          style={[StyleSheet.absoluteFill, styles.camera]}
-          device={device!}
-          isActive={true}
-        />
+        <>
+          <Camera
+            photo
+            ref={camera}
+            style={[StyleSheet.absoluteFill, styles.camera]}
+            device={device!}
+            isActive={true}
+          />
+          <View style={styles.buttonContainer}>
+            <TakePhotoButton onPress={takePhoto} />
+          </View>
+        </>
       ) : (
-        <Pressable onPress={handleCameraPermission}>
-          <Text style={styles.askForPermission}>Request camera access</Text>
-        </Pressable>
+        <View style={styles.permissionButtonContainer}>
+          <NavigationButton
+            onPress={handleCameraPermission}
+            name="Request Camera Access"
+          />
+        </View>
       )}
-
-      <View style={styles.buttonContainer}>
-        <TakePhotoButton onPress={takePhoto} />
-      </View>
     </View>
   );
 };

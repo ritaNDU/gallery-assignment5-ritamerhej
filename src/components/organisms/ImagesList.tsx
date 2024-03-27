@@ -59,7 +59,9 @@ const ImagesList = () => {
           nestedScrollEnabled={false}
         />
       ) : (
-        <Text style={styles.noImagesText}>No images yet...</Text>
+        <View style={styles.noImageContainer}>
+          <Text style={styles.noImagesText}>No images yet...</Text>
+        </View>
       )}
     </View>
   );

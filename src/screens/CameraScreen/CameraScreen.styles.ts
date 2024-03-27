@@ -14,6 +14,12 @@ const styles = StyleSheet.create({
   camera: {zIndex: -1},
 
   cameraContainer: {height: '100%'},
+  permissionButtonContainer: {
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   askForPermission: {fontSize: 20, color: '#000'},
   buttonContainer: {position: 'absolute', bottom: 50, alignSelf: 'center'},
 });

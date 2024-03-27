@@ -6,6 +6,11 @@ const styles = StyleSheet.create({
     color: theme.colors.textColor,
     fontSize: theme.fontSize.small,
   },
+  noImageContainer: {
+    width: '100%',
+    height: '100%',
+    padding: 10,
+  },
   detailsContainer: {
     gap: 20,
   },
