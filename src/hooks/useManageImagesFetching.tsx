@@ -34,6 +34,7 @@ const useManageImagesFetching = () => {
     setIsLoading(true);
     const images = await getImagesFromApi('1');
     // This is required to have the images always sorted on mount
+    // The idea here is to have the images ALWAYS sorted on mount but have the user refresh to sort when loading new images
     const sortedImages = sortByDistance(images, currentLocation);
     setIsLoading(false);
     storeImages(sortedImages);
