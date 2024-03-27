@@ -1,15 +1,18 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ImageType} from '../data/image.types';
+import {Alert} from 'react-native';
 
 export default function useManageAsyncStorage() {
   async function storeItem(image: ImageType) {
     try {
       const allKeys = await AsyncStorage.getAllKeys();
       if (allKeys.includes(image.id)) {
-        return;
+        Alert.alert('You have already added this image.');
+      } else {
+        const jsonImage = JSON.stringify(image);
+        await AsyncStorage.setItem(image.id, jsonImage);
+        Alert.alert('Image added to favorites.');
       }
-      const jsonImage = JSON.stringify(image);
-      await AsyncStorage.setItem(image.id, jsonImage);
     } catch (err) {
       console.log(err);
     }

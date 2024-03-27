@@ -1,4 +1,4 @@
-import {Alert, ScrollView} from 'react-native';
+import {ScrollView} from 'react-native';
 import React from 'react';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {MainNavigatorStackPropsList} from '../../navigation/MainNavigator.types';
@@ -21,7 +21,6 @@ const ImageDetailsScreen = () => {
 
   async function handlePress() {
     await storeItem(image);
-    Alert.alert('Image added to favorites');
   }
   return (
     <ScrollView style={[commonStyles.container, styles.container]}>
